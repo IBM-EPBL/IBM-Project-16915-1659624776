@@ -1,0 +1,43 @@
+body{
+    background-color:#8d2c87;
+    margin: 5%;
+    background-image: url("D:/7th sem/IBM-NT/assignment1/webinar.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-size: cover;
+}
+  
+h2{
+    color: white;
+    margin-left:60%;
+}
+
+div{
+    margin-left: 54%;
+    margin-right: 20%;
+    border: 2px yellowgreen solid;
+    background-color: darkcyan;
+    padding: 4%;
+    width:45%;
+    height: 80%;
+}
+
+form{
+    height:50%;
+}
+
+a{
+    margin-left: 80%;
+    color: white;
+}
+
+label{
+    color: white;
+}
+
+.btn{
+    background-color: blueviolet;
+    color: white;
+    width: 15%;
+}
