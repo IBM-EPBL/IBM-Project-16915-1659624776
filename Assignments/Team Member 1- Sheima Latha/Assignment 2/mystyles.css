@@ -1,0 +1,31 @@
+body{
+    background-color: #FFFDD0;
+    margin: 5%;
+}
+h2{
+    color: #3d0a1a;
+    text-align: center;
+}
+div{
+    border: 2px #FFFDD0 solid;
+    background-color: #3d0a1a;
+    padding: 3%;
+    width: 45%;
+    height: 96;
+    margin-left: 27%;
+}
+form{
+     height:50%;
+     padding:10px;
+}
+.btn{
+     background-color: #FFFDD0;
+     color: black;
+     width: 15%;
+}
+input{
+    overflow: visible;
+    height: 38px;
+    width: 96%;
+    border-radius: 8px;
+}
