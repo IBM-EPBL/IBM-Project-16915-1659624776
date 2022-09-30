@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registration Page</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='regstyles.css')}}" type="text/css">
+    </head>
+<body style="background:url({{url_for('static',filename='bg.jpg')}});background-repeat: no-repeat;  background-attachment: fixed;  background-position: center;  background-size: cover; ">
+    <div >
+        <h1 style="color:white">Registration </h1>
+<form method="post" style="    margin-left: 25%;">
+
+    <input type="text" placeholder="Enter Roll No" name="rollno" value="{{ request.form['rollno'] }}"><br>
+    <input type="email" placeholder="Enter Email" name="mail" value="{{ request.form['mail'] }}"><br>
+      <input type="text" placeholder="Enter Username" name="uname" value="{{ request.form['uname'] }}"><br>
+    <input type="text" placeholder="Set Password " name="password" value="{{ request.form['password'] }}"><br>
+
+    <input type="submit" >
+
+</form>
+
+</div>
+</body>
+
+
+</html>

@@ -1,0 +1,24 @@
+div{
+width: 30%;
+
+    padding: 2%;
+    margin-left: 35%;
+    background: #deb887;
+        background: rgb(40 39 37 / 80%);
+    margin-top: 10%;
+
+}
+input{
+    margin: 1%;
+}
+h1{
+
+    text-align: center;
+}
+body{
+height:90vw;
+max-width: 100%;
+    overflow-x: hidden;
+  margin:0;
+  padding:0;
+}
