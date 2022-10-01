@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}" type="text/css">
+    </head>
+         <body style="background: url({{url_for('static', filename='bg6.jpeg')}}); background-repeat: no-repeat ; background-size:1400px 670px">
+
+            <h2 style="text-align:center; padding-top :2% ">REGISTRATION FORM</h2>
+            <div>
+
+            <form method="post">
+                <label>Name:</label>
+                <input type="text" name="uname" value="{{request.form[uname]}}"><br><br>
+                 <label >Roll Number:</label>
+                <input type="text" name="num" value="{{request.form[num]}}"><br><br>
+                <label >Email:</label>
+                <input type="text" name="mail"  value="{{request.form[mail]}}"><br><br>
+                <label >Password</label>
+                <input type="text" name="pwd" value="{{request.form[pwd]}}" ><br><br>
+                <input  type="submit" value="Submit">
+              </form>
+            </div>
+
+        </body>
+
+</html>

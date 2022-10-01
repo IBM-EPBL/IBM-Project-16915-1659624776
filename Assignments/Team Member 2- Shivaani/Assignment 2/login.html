@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}" type="text/css">
+    <title>Title</title>
+</head>
+<body style="background: url({{url_for('static', filename='bg6.jpeg')}}); background-repeat: no-repeat ; background-size:1400px 670px">
+    <h2 style="text-align:center; padding-top :2% "> LOGIN FORM</h2>
+    <div>
+
+        <form method="post">
+                <label>Name:</label>
+                <input type="text" name="uname" value="{{request.form[uname]}}"><br><br>
+
+                <label >Password</label>
+                <input type="text" name="pwd" value="{{request.form[pwd]}}" ><br><br>
+                <input  style =" background-color: #CDF0EA;"type="submit" value="Submit">
+        </form>
+            </div>
+
+
+
+</body>
+</html>
