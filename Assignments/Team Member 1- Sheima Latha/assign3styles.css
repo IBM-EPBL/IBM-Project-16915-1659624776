@@ -1,0 +1,16 @@
+body{
+    background-color: #FFFDD0;
+    margin: 5%;
+}
+
+h2{
+    color: #3d0a1a;
+    text-align: center;
+}
+
+.imgdiv{
+width: 300px;
+height: 400px;
+border: 2px #3d0a1a solid;
+margin: 3px;
+}
