@@ -1,4 +1,5 @@
 from flask import Flask,render_template
+from objstorage import *
 app= Flask(__name__)
 
 @app.route("/chatbot")
