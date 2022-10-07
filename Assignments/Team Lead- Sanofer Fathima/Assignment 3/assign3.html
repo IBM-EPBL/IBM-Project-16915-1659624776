@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>ASSIGNMENT</title>
+ <link rel="stylesheet" href="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-objectstorage.appdomain.cloud/sanrasheedcss/assign3.css')}}" type="text/css">
+</head>
+<body >
+<h1>DISPLAYING IMAGES FROM CLOUD OBJECT STORAGE</h1>
+{% for image in arr: %}
+<img src="{{url_for('redirect_to',link=image)}}">
+{% endfor %}
+</body>
+</html>
