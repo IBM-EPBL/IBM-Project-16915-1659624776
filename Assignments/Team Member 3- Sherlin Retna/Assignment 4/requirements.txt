@@ -1,0 +1,3 @@
+Flask
+ibm-db
+ibm-cos-sdk
