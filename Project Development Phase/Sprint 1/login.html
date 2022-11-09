@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login </title>
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+ <link rel="stylesheet" href="{{url_for('static',filename='styles/login.css')}}" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  		<script src="{{url_for('static',filename='script.js')}}"/>
+ <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+		<script defer src="https://use.fontawesome.com/releases/v6.2.0/js/all.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+
+    </head>
+<body style="background:url({{url_for('static',filename='bgs/bg.jpg')}});background-repeat: no-repeat;  background-attachment: fixed;  background-position: center;  background-size: cover; ">
+   <div class="container">
+
+        	<div class="d-flex  h-100" style="width: 75%;">
+        		<div class="card">
+
+        			<div class="card-body">
+						{% with messages = get_flashed_messages() %}
+            {% if messages %}
+               {% for message in messages %}
+                    <p style="color:white;text-align: center;">{{ message }}</p>
+               {% endfor %}
+         {% endif %}
+      {% endwith %}
+                  <h1 style="color:white;text-align:center;    margin: 5%;"> Login </h1>
+        				<form method="post" style="padding: 2.5%;">
+        					<div class="input-group form-group">
+
+        						<div class="input-group-prepend">
+        							<span class="input-group-text"><i class="fas fa-user"></i></span>
+        						</div>
+        						<input type="text" class="form-control" placeholder="Username"  name="uname" value="{{ request.form['uname'] }}">
+
+        					</div>
+        					<div class="input-group form-group">
+        						<div class="input-group-prepend">
+        							<span class="input-group-text"><i class="fas fa-key"></i></span>
+        						</div>
+        						<input id ="myInput" type="password" name="password" value="{{ request.form['password'] }}" class="form-control" placeholder="Password">
+                    <span style="background: white;border:0px;    border-radius: 0px"  class="input-group-text"><i onclick="myFunction()" style="color:black" id="icon" class="fas fa-eye-slash"></i></span>
+        					</div>
+        					<div class="form-group">
+                    <input type="submit" name="login" value="Login" class="btn login_btn"><br>
+                      <button type="reset" class="btn  " name="button">Reset</button>
+                  </div>
+        				</form>
+						 <a  href="{{url_for('regpage')}}">Don't have an account. Click here to register.</a><br>
+                <a  class="dont" style="margin-left:25%;">  Forgot Password?</a>
+
+        			</div>
+
+
+
+        		</div>
+        	</div>
+        </div>
+
+</body>
+
+
+</html>
