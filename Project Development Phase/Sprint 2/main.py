@@ -15,6 +15,24 @@ app.config['MAIL_PASSWORD']="ptefzzenjtftzszl"
 app.config['MAIL_USE_TLS']=True
 app.config['MAIL_USE_SSL']=False
 mail=Mail(app)
+from connect import *
+from flask import *
+import datetime
+
+
+def fetchapi(category):   # here images are fetched from respective buckets based on the category
+    api=""
+    if(category =='Women'):
+        api='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/raspberryibmsfrappbucket/'
+    elif (category == 'Men'):
+        api = 'https://s3.jp-tok.cloud-object-storage.appdomain.cloud/iraash/'
+    elif (category == 'Accessories'):
+        api = 'https://s3.jp-tok.cloud-object-storage.appdomain.cloud/104084smartfashion/'
+    elif (category == 'Kids'):
+        api = 'https://s3.jp-tok.cloud-object-storage.appdomain.cloud/iraash/'
+    elif (category == 'Footwears'):
+        api = 'https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/'
+    return api
 
 @app.route("/")
 def home_page():
