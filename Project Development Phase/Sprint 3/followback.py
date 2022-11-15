@@ -18,7 +18,7 @@ def fetchapi(category):
     return api
 
 
-def insert_intocart(arr,prodid,category,userid,type):
+def insert_intocart(arr,prodid,category,userid,type):  
 
     if (type == 'Dresses' or type == 'Kurtis' or type == 'Palazzo' or type == 'Western' or category == 'Men' or category == 'Kids' or category == 'Footwears'):
         size = request.form['sizeval']
@@ -26,7 +26,7 @@ def insert_intocart(arr,prodid,category,userid,type):
         size = "nil"
     flag = 0
 
-    for cartitems in arr:
+    for cartitems in arr:                           #if already the user has added an item in cart quantity gets updated.
         if (cartitems[6] == prodid and cartitems[3]==size):
             flag = 1
             updatequery = "UPDATE cart set quantity=quantity+1 where prodid='" + prodid + "'"
