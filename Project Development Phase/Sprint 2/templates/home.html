@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sash Vogue</title>
+    <link rel="icon" type="image/jpeg" href="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/logo.jpeg')}}" sizes="200x200">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+ <link rel="stylesheet" href="{{url_for('static',filename='styles/styles.css')}}" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&family=Quicksand:wght@300&family=Courgette&display=swap" rel="stylesheet">
+
+     <script src="https://kit.fontawesome.com/0a56e63d65.js" crossorigin="anonymous"></script>
+</head>
+<body style="background:url({{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/hmbg.png')}});background-repeat: no-repeat;  background-attachment: fixed;  background-position: center;  background-size: cover; ">
+{% from 'nav.html' import usedalot %}
+ {{usedalot(uname) }}
+
+
+{% if uname!= None: %}
+<div style="display:flex;">
+    <h4 style="font-family: 'Courgette', cursive;text-align: left;font-size: xx-large;margin-top: 8%;margin-left: 5%;font-weight: 100">Welcome {{uname}},</h4>
+  <form style="margin-left: 42%;display:flex;flex-wrap:wrap;" class="form-inline my-2 my-lg-0">
+      <input style="border-radius: 25px;width: 300px;margin-top: 25%;" class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search">
+      <button class="btn searchbtn form-control" style="border-radius: 50%;background: black;margin-top: 25%;"><i style="color:white" class="fas fa-search"></i></button>
+    </form>
+
+</div>
+{% else: %}
+ <form style="margin-left: 25%;" class="form-inline my-2 my-lg-0">
+      <input style="    border-radius: 25px;
+    width: 70%;
+    margin-top: 10%;" class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search">
+      <button class="btn searchbtn" style="border-radius: 50%;
+    background: black;
+    margin-top: 10%;
+}"><i style="color:white" class="fas fa-search"></i></button>
+    </form>
+{% endif %}
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
+
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item ">
+
+      <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/kidspost.jpeg')}}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item active">
+      <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/sale.jpeg')}}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/ethnic.jpg')}}" class="d-block w-100" alt="...">
+    </div>
+      <div class="carousel-item ">
+      <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/eid.jpeg')}}" class="d-block w-100" alt="...">
+    </div>
+       <div class="carousel-item">
+      <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/shoe.jpg')}}" class="d-block w-100" alt="...">
+    </div>
+       <div class="carousel-item">
+      <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/men.jpeg')}}" class="d-block w-100" alt="...">
+    </div>
+       <div class="carousel-item">
+      <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/watch.jpeg')}}" class="d-block w-100" alt="...">
+    </div>
+       <div class="carousel-item">
+      <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/SAREE.jpg')}}" class="d-block w-100" alt="...">
+    </div>
+
+  </div>
+
+ <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<div class="container">
+<div class="row">
+  <div class="col-sm-12">
+	<div class="section-title">
+		<div class="divider"></div>
+	</div>
+</div>
+</div>
+</div>
+
+
+<section id="featuresec" >
+    <h1 style="text-align:center;    text-align: center;padding: 2%;font-weight: bolder;" class="h1style">F E A T U R E S</h1>
+    <div class="container">
+  <div class="row">
+    <div class="col-sm">
+       <h4 >Free Shipping</h4>
+    <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/free-delivery.png')}}" class="icon" >
+       <h4 >Get Free shipping on all orders</h4>
+    </div>
+    <div class="col-sm">
+      <h4 >Easy Returns</h4>
+      <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/product-return.png')}}" class="icon" >
+         <h4 >7 days Return Policy</h4>
+    </div>
+    <div class="col-sm">
+     <h4 >Customer Support</h4>
+     <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/support.png')}}" class="icon" >
+       <h4 >24/7 Customer Support By our experts</h4>
+    </div>
+  </div>
+</div>
+</section>
+<div class="container">
+<div class="row">
+  <div class="col-sm-12">
+	<div class="section-title">
+		<div class="divider"></div>
+	</div>
+</div>
+</div>
+</div>
+
+{% from 'footer.html' import footer %}
+ {{footer()}}
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "cba0c163-9f9a-42ce-b6e9-979ac6318cc0", // The ID of this integration.
+    region: "au-syd", // The region your integration is hosted in.
+    serviceInstanceID: "245858a6-01a2-41fc-8707-d603be17b8f0", // The ID of your service instance.
+    onLoad: function(instance) { instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="{{url_for('static',filename='script.js')}}"/>
+<script src="https://kit.fontawesome.com/0a56e63d65.js" crossorigin="anonymous"></script>
+</body>
+</html>
