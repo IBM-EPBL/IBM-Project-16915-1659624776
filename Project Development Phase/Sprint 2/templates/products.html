@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sash Vogue</title>
+    <link rel="icon" type="image/jpeg" href="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/logo.jpeg')}}" sizes="200x200">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+ <link rel="stylesheet" href="{{url_for('static',filename='styles/products.css')}}" type="text/css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    	<script defer src="https://use.fontawesome.com/releases/v6.2.0/js/all.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+{% from 'nav.html' import usedalot %}
+{{ usedalot(uname) }}    
+<div class="path" style="margin: 7% 0% 0% 5%;" >
+    <a  href="{{url_for('home_page')}}">Home <i class="fa-solid fa-angle-right"></i></a>
+    <a  href="">{{category}} <i class="fa-solid fa-angle-right"></i></a>
+    <a  href="">{{type}}</a>
+</div>
+
+{% with messages = get_flashed_messages() %}
+            {% if messages %}
+               {% for message in messages %}
+                    <p style="color:black;text-align: center;">{{ message }}</p>
+               {% endfor %}
+         {% endif %}
+      {% endwith %}
+
+
+ <div class="container">
+  <div class="row">
+{% for product in productsarr: %}
+    <div class="col-sm">
+      <div class="card" >
+          {% if(type != 'Sunglasses'): %}
+  <a href="{{url_for('product_detailspg',category=category,type=type,prodid=product[0])}}"><img class="card-img-top" src="{{url_for('redirect_to',link=api+product[4])}}" alt="Card image cap"></a>
+           {% else :%}
+          <a href="{{url_for('sunglasses_detailspg',category=category,type=type,prodid=product[0])}}"><img class="card-img-top" src="{{url_for('redirect_to',link=api+product[4])}}" alt="Card image cap"></a>
+          {% endif %}
+          <div class="card-body">
+    <h6 class="card-title" style="margin-bottom:0;font-weight: bold;">{{product[1]}}</h6>
+    <p class="card-text" >By {{product[2]}}</p>
+    <p class="card-text" style="font-size:x-large">₹{{product[3] -(product[3]*product[8] / 100)|round|int}}</p>
+    <div style="display:flex;justify-content:space-between;">
+
+        <a href="#" class="btn addtocartbtn" style="font-weight:600" class="btn" >Add To Cart</a>
+
+        <form method="post">
+            <input type="hidden" name="prodid" value="{{product[0]}}">
+            <button type="submit" class="btn" style="color:black;background:transparent" ><i id="wishlist" style="width: 32px;height: 32px" class="fa-regular fa-heart"></i></button>
+
+        </form>
+    </div>
+
+  </div>
+</div>
+    </div>
+
+{% endfor %}
+  </div>
+</div>
+
+{% from 'footer.html' import footer %}
+ {{footer()}}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="{{url_for('static',filename='script.js')}}"/>
+<script src="https://kit.fontawesome.com/0a56e63d65.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
