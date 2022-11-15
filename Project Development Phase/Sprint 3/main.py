@@ -20,7 +20,7 @@ from flask import *
 import datetime
 
 
-def fetchapi(category):   # here images are fetched from respective buckets based on the category
+def fetchapi(category):   # here images are fetched from respective buckets based on the category.Since we are a team of 4 members we used all the buckets of our team members to store
     api=""
     if(category =='Women'):
         api='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/raspberryibmsfrappbucket/'
@@ -41,12 +41,12 @@ def home_page():
     return render_template("home.html",uname=logged_in_username,userid=logged_in_userid)
 
 @app.route('/redirect_to')
-def redirect_to():
+def redirect_to():          
     link = request.args.get('link', '/')
     return redirect(link), 301
 
 
-def mail_service(mailid,sub,body):
+def mail_service(mailid,sub,body):#since sendgrid mail service not working we used flask mail module
     try:
         msg = Message(sub,sender="sashvogue@gmail.com",recipients=[mailid])
         msg.body = body
@@ -62,7 +62,7 @@ def regpage():
         form_checkvals = request.form.getlist("checkval")
         userid=str(random.randint(16565565445345,96565565445345))
         email = request.form['mail']
-        dob=request.form['DOB']
+        dob=request.form['DOB']              #for coupon generation on user's bday we need dob
         username = request.form['username']
         password=request.form['password']
         contact=request.form['contact']
@@ -187,6 +187,7 @@ def products_page(category,type):
 def payment_pg():
     userid = session.get('logged_in_userid', None)
     uname = session.get('logged_in_username', None)
+    amtarr = totamtcalculation(arr)
     return render_template("payment.html",netamt=amtarr[2],userid=userid,uname=uname)
 
 if(__name__=='__main__'):
