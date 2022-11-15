@@ -164,7 +164,7 @@ def products_page(category,type):
         else:
             flash("Please sign in to add products to the wishlist!")
 
-    if(type != "Sunglasses"):
+    if(type != "Sunglasses"):           
 
         api=fetchapi(category)
         query="select  o.prodid,o.prodname,o.brand,o.price,p.pic1,p.pic2,p.pic3,p.pic4,o.offer from outfit o inner join picture p on o.prodid=p.prodid where category='"+category+"' and type='"+type+"'"
