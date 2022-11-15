@@ -25,10 +25,7 @@
         <a  href="{{url_for('cart_page')}}">Cart<i class="fa-solid fa-angle-right"></i></a>
         <a  href="">Payment</a>
     </div>
-    {% if(birthdaycoupon ==True): %}
-             <h1 style="font-family: 'Alex Brush', cursive;font-weight: 800;color: #5456b2;
-    text-align: center;">Hey it's your birthday!!! Check out your special  birthday coupon</h1>
-    {%endif %}
+  
 <form method="post">
 <div class ="main" style="display:flex;">
 
@@ -41,7 +38,7 @@
         <!--  Final amount tobe paid is displayed      -->
         <h5>Bill Amount: Rs. {{netamt}}</h5>
 
-        <input type=checkbox id="coupon" name="coupon" value="yes" onclick="checkcouponprice({{netamt}})"> Apply Coupon<br><br>
+        <input type=checkbox id="coupon" name="coupon" value="yes" > Apply Coupon<br><br>
 
 
 
@@ -82,10 +79,8 @@
     <div class="couponcard" style="padding:1%" id="coupondiv">
             <h3 style="font-family: 'Lora', serif;">Coupons available for you</h3>
               <div class="couponimg" style="display:flex;flex-direction:column;align-items: center;">
-<!--                                         GENERATING BDAY COUPONS  -->
-                {% if birthdaycoupon==True: %}  
-                         <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/coupon4.jpg')}}"  />
-                  {% endif %}
+                                       
+                
             <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/coupon1.jpg')}}"  />
             <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/coupon2.jpg')}}" />
             <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/coupon3.jpg')}}"  />
@@ -104,25 +99,6 @@
     </form>
         <!-- Modal -->
     <script>
-
-
-function checkcouponprice(price){
-
-if(price < 1000)
-   window.alert("Coupon will be offered if your amount exceeds ₹1000");
-
-
-else{
-     document.getElementById('coupondiv').style.visibility="visible";
-     document.getElementById('coupon').style.visibility="hidden";
-     }
-}
-
-
-
-
-
-
 
   document.getElementById("cashon").addEventListener("click", function(event){
   event.preventDefault()
