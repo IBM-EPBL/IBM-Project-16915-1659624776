@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -8,7 +7,6 @@
  <link rel="stylesheet" href="{{url_for('static',filename='styles/styles.css')}}" type="text/css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&family=Quicksand:wght@300&display=swap" rel="stylesheet">
 <title>Sash Vogue</title>
      <script src="https://kit.fontawesome.com/0a56e63d65.js" crossorigin="anonymous"></script>
@@ -16,8 +14,6 @@
 <body style="background:url({{url_for('static',filename='bgs/hmbg.png')}});background-repeat: no-repeat;  background-attachment: fixed;  background-position: center;  background-size: cover; ">
 {% from 'nav.html' import usedalot %}
  {{usedalot()}}
-
-
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -28,11 +24,9 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
-
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item ">
-
       <img src="{{url_for('static',filename='posters/kidspost.jpeg')  }}" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item active">
@@ -78,8 +72,6 @@
 </div>
 </div>
 </div>
-
-
 <section id="featuresec" >
     <h1 style="text-align:center;    text-align: center;padding: 2%;font-weight: bolder;" class="h1style">F E A T U R E S</h1>
     <div class="container">
