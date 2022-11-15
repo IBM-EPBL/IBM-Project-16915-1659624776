@@ -1,0 +1,117 @@
+{% macro usedalot(uname) %}
+ <nav class="navbar navbar-expand-lg fixed-top " style="padding:0rem 1rem;">
+  <a class="navbar-brand"  id="brand" >SASH   VOGUE</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link " href="{{url_for('home_page')}}">HOME <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WOMEN
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{url_for('products_page',category='Women',type='Dresses')}}"  >Dresses</a>
+          <a class="dropdown-item" href="{{url_for('products_page',category='Women',type='Kurtis')}}">Kurtis</a>
+            <a class="dropdown-item" href="{{url_for('products_page',category='Women',type='Palazzo')}}">Palazzo & Pants</a>
+          <a class="dropdown-item" href="{{url_for('products_page',category='Women',type='Saree')}}">Sarees</a>
+            <a class="dropdown-item" href="{{url_for('products_page',category='Women',type='Western')}}">Western</a>
+            <a class="dropdown-item" href="{{url_for('products_page',category='Women',type='Ethnic Wear')}}">Ethnic Wear</a>
+              <a class="dropdown-item" >Accessories</a>
+            <ul>
+            <li style="list-style:none"><a class="dropdown-item" href="{{url_for('products_page',category='Accessories',type='Handbags')}}">Handbag</a> </li>
+            <li style="list-style:none"><a class="dropdown-item" href="{{url_for('products_page',category='Accessories',type='Watches')}}">Watches</a> </li>
+               <li style="list-style:none"><a class="dropdown-item" href="{{url_for('products_page',category='Accessories',type='Scarves & Stoles')}}">Scarves & Stoles </a> </li>
+              <li style="list-style:none"><a class="dropdown-item" href="{{url_for('products_page',category='Accessories',type='Sunglasses')}}">Sunglasses </a> </li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MEN
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{url_for('products_page',category='Men',type='Casuals')}}">Casuals</a>
+          <a class="dropdown-item" href="{{url_for('products_page',category='Men',type='Formals')}}">Formals</a>
+          <a class="dropdown-item" href="{{url_for('products_page',category='Men',type='T-shirt')}}">T-Shirts</a>
+          <a class="dropdown-item" href="{{url_for('products_page',category='Men',type='Jeans')}}">Jeans</a>
+          <a class="dropdown-item" >Accessories</a>
+          <ul>
+            <li style="list-style:none"><a class="dropdown-item" href="{{url_for('products_page',category='Accessories',type='Wallets')}}">Wallet</a> </li>
+            <li style="list-style:none"><a class="dropdown-item" href="{{url_for('products_page',category='Accessories',type='Tie')}}">Tie</a> </li>
+            <li style="list-style:none"><a class="dropdown-item" href="{{url_for('products_page',category='Accessories',type='Men watches')}}">Watches</a> </li>
+          </ul>
+
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          KIDS
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item"  >Boys</a>
+          <ul>
+            <li style="list-style:none"><a class="dropdown-item" href="{{url_for('products_page',category='Kids',type='Boys T-Shirts')}}">Tshirts</a> </li>
+            <li style="list-style:none"><a class="dropdown-item" href="{{url_for('products_page',category='Kids',type='Boys Trousers')}}">Trousers</a> </li>
+          </ul>
+             <a class="dropdown-item">Girls</a>
+          <ul>
+            <li style="list-style:none"><a class="dropdown-item" href="{{url_for('products_page',category='Kids',type='Girls Frocks')}}">Frocks</a> </li>
+            <li style="list-style:none"><a class="dropdown-item" href="{{url_for('products_page',category='Kids',type='Girls Skirts & Tops')}}">Skirts and Tops</a> </li>
+          </ul>
+
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          FOOTWEARS
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{url_for('products_page',category='Footwears',type='Women')}}">Women</a>
+          <a class="dropdown-item" href="{{url_for('products_page',category='Footwears',type='Men')}}">Men</a>
+            <a class="dropdown-item" href="{{url_for('products_page',category='Footwears',type='Kids')}}">Kids</a>
+        </div>
+      </li>
+  {%   if uname!=None: %}
+     <li class="nav-item active">
+        <a class="nav-link " href="{{url_for('cart_page')}}"><img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/bag.png')}}" width="28"  ><span class="sr-only">(current)</span></a>
+      </li>
+
+     <li class="nav-item active">
+        <a class="nav-link " href="{{url_for('wishlist_pg')}}"  ><img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/love.png')}}" width="28"  ><span class="sr-only">(current)</span></a>
+      </li>
+            {% endif %}
+      {%   if uname==None: %}
+      <li class="nav-item active">
+        <a class="nav-link " href="{{url_for('loginpage')}}">SIGNIN <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link " href="{{url_for('regpage')}}">SIGNUP <span class="sr-only">(current)</span></a>
+      </li>
+      {% else: %}
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/user.png')}}" style="width: 30px;  border-radius: 50%;  margin-right: 3px;" alt="" />
+        {{uname}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+       <a class="dropdown-item" href=""> <i style="color: black;    position: relative;right: 5px;" class="fas fa-user-circle"></i>My account</a>
+          <a class="dropdown-item" href=""><i style="color: black;    position: relative;right: 5px;" class="fas fa-power-off"></i>Logout</a>
+        </div>
+      </li>
+      {% endif %}
+
+    </ul>
+
+
+
+  </div>
+</nav>
+{% endmacro%}
