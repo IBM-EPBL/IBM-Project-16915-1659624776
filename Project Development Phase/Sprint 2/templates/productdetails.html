@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sash Vogue</title>
+    <link rel="icon" type="image/jpeg" href="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/logo.jpeg')}}" sizes="200x200">  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+ <link rel="stylesheet" href="{{url_for('static',filename='styles/products.css')}}" type="text/css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&family=Lora:ital,wght@1,500&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/0a56e63d65.js" crossorigin="anonymous"></script>
+</head>
+<body>
+{% from 'nav.html' import usedalot %}
+{{usedalot(uname)}}
+<div class="path" style="margin: 7% 0% 0% 5%;">
+  <a  href="{{url_for('home_page')}}">Home <i class="fa-solid fa-angle-right"></i></a>
+    <a  >{{category}} <i class="fa-solid fa-angle-right"></i></a>
+    <a  href="{{url_for('products_page',category=category,type=type)}}">{{type}} <i class="fa-solid fa-angle-right"></i></a>
+</div>
+<div class="productdetaildiv" >
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+   <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{{url_for('redirect_to',link=api+result[16])}}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{{url_for('redirect_to',link=api+result[17])}}" class="d-block w-100" alt="...">
+    </div>
+       {% if (res18empty==False): %}
+    <div class="carousel-item">
+      <img src="{{url_for('redirect_to',link=api+result[18])}}" class="d-block w-100" alt="...">
+    </div>
+       {% endif %}
+       {% if (res19empty==False): %}
+      <div class="carousel-item ">
+      <img src="{{url_for('redirect_to',link=api+result[19])}}" class="d-block w-100" alt="...">
+     </div>
+       {%endif%}
+    <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+       </button>
+  <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </button>
+  </div>
+</div>
+  <div class="detaildesc" >
+      <form method="post">
+    <h1>{{result[1]}}</h1>
+    <p>Price: ₹{{pricedisplay}} &nbsp;  <del >₹{{result[2]}}</del></p>
+      <p>Offer: {{result[6]}}%</p>
+    <p>Material: {{result[3]}}</p>
+    <p>Colour: {{result[4]}}</p>
+    <p>Brand: {{result[5]}}</p>
+    {% if (category=='Women' and type!='Saree') and (category=='Women' and type!='Ethnic Wear')  :%}
+  <div class="radio-toolbar">
+    <input type="radio" id="radioXS" name="sizeval" value="XS" checked>
+    <label for="radioXS">XS</label>
+      <input type="radio" id="radioS" name="sizeval" value="S" >
+    <label for="radioS">S</label>
+      <input type="radio" id="radioM" name="sizeval" value="M" >
+    <label for="radioM">M</label>
+      <input type="radio" id="radioL" name="sizeval" value="L">
+    <label for="radioL">L</label>
+      <input type="radio" id="radioXL" name="sizeval" value="XL" >
+    <label for="radioXL">XL</label>
+      <input type="radio" id="radioXXL" name="sizeval" value="XXL">
+    <label for="radioXXL">XXL</label>
+
+</div>
+
+
+          <a  style="cursor: pointer; color:rgb(132 157 138);" data-toggle="modal" data-target="#exampleModal">Size chart</a>
+
+
+
+    {% elif category =='Men' :%}
+
+        <div class="radio-toolbar">
+
+    <input type="radio" id="radio38" name="sizeval" value="38" checked>
+    <label for="radio38">38</label>
+      <input type="radio" id="radio39" name="sizeval" value="39" >
+    <label for="radio39">39</label>
+      <input type="radio" id="radio40" name="sizeval" value="40" >
+    <label for="radio40">40</label>
+      <input type="radio" id="radio42" name="sizeval" value="42">
+    <label for="radio42">42</label>
+      <input type="radio" id="radio44" name="sizeval" value="44" >
+    <label for="radio44">44</label>
+      <input type="radio" id="radio46" name="sizeval" value="46">
+    <label for="radio46">46</label>
+
+</div>
+     <a  style="cursor: pointer;color:rgb(132 157 138);" data-toggle="modal" data-target="#exampleModal">Size chart</a>
+
+   {% elif category == 'Footwears' and type=='Kids' :%}
+      <div class="radio-toolbar">
+    <input type="radio" id="radiok20" name="sizeval" value="20" checked>
+    <label for="radiok20">20</label>
+      <input type="radio" id="radiok21" name="sizeval" value="21" >
+    <label for="radiok21">21</label>
+      <input type="radio" id="radiok22" name="sizeval" value="22" >
+    <label for="radiok22">22</label>
+      <input type="radio" id="radiok23" name="sizeval" value="23">
+    <label for="radiok23">23</label>
+      <input type="radio" id="radiok24" name="sizeval" value="24" >
+    <label for="radiok24">24</label>
+      <input type="radio" id="radiok25" name="sizeval" value="25">
+    <label for="radiok25">25</label>
+</div>
+    <a  style="cursor: pointer;color:rgb(132 157 138);" data-toggle="modal" data-target="#exampleModal">Size chart</a>
+    {% elif category == 'Footwears' :%}
+      <div class="radio-toolbar">
+    <input type="radio" id="radiof40" name="sizeval" value="40" checked>
+    <label for="radiof40">40</label>
+      <input type="radio" id="radiof41" name="sizeval" value="41" >
+    <label for="radiof41">41</label>
+      <input type="radio" id="radiof42" name="sizeval" value="42" >
+    <label for="radiof42">42</label>
+      <input type="radio" id="radiof43" name="sizeval" value="43">
+    <label for="radiof43">43</label>
+      <input type="radio" id="radiof44" name="sizeval" value="44" >
+    <label for="radiof44">44</label>
+      <input type="radio" id="radiof45" name="sizeval" value="45">
+    <label for="radiof45">45</label>
+</div>
+    <a  style="cursor: pointer;color:rgb(132 157 138);" data-toggle="modal" data-target="#exampleModal">Size chart</a>
+        {% elif category =='Kids' :%}
+             <div class="radio-toolbar">
+    <input type="radio" id="radio2_3" name="sizeval" value="2-3Y" checked>
+    <label for="radio2_3">2-3Y</label>
+      <input type="radio" id="radio3-4" name="sizeval" value="3-4Y" >
+    <label for="radio3-4">3-4Y</label>
+      <input type="radio" id="radio5-7" name="sizeval" value="5-7Y" >
+    <label for="radio5-7">5-7Y</label>
+      <input type="radio" id="radio7-10" name="sizeval" value="7-10Y">
+    <label for="radio7-10">7-10Y</label>
+
+
+</div>
+     <a  style="cursor: pointer;color:rgb(132 157 138);" data-toggle="modal" data-target="#exampleModal">Size chart</a>
+    {% endif %}
+
+
+    <p>Return Policy: 7 days return policy</p>
+    <p>Expected Delivery date: 19 Nov </p>
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+               {% for message in messages %}
+                    <p style="color:black;">{{ message }}</p>
+               {% endfor %}
+         {% endif %}
+      {% endwith %}
+      <div style="display:flex;">
+           <button  style="font-family: 'Quicksand', sans-serif;" class="btn buynow" >Buy Now</button>
+            <input type="submit"  style="font-family: 'Quicksand', sans-serif;" value="Add To Cart" class="btn buynow"/>
+
+<div class="content">
+
+  <button class="shareButton main">
+    <svg class="share" style="width:24px;height:24px" viewBox="0 0 24 24"><path d="M18,16.08C17.24,16.08 16.56,16.38 16.04,16.85L8.91,12.7C8.96,12.47 9,12.24 9,12C9,11.76 8.96,11.53 8.91,11.3L15.96,7.19C16.5,7.69 17.21,8 18,8A3,3 0 0,0 21,5A3,3 0 0,0 18,2A3,3 0 0,0 15,5C15,5.24 15.04,5.47 15.09,5.7L8.04,9.81C7.5,9.31 6.79,9 6,9A3,3 0 0,0 3,12A3,3 0 0,0 6,15C6.79,15 7.5,14.69 8.04,14.19L15.16,18.34C15.11,18.55 15.08,18.77 15.08,19C15.08,20.61 16.39,21.91 18,21.91C19.61,21.91 20.92,20.61 20.92,19A2.92,2.92 0 0,0 18,16.08Z" /></svg>
+<svg class="check" style="width:24px;height:24px" viewBox="0 0 24 24">    <path  d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" /></svg>
+<svg class="close" style="width:24px;height:24px" viewBox="0 0 24 24">
+<path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+  </button>
+
+  <button class="shareButton fb" type="button" data-toggle="tooltip" data-placement="top" title="Gmail">
+
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Hey+Check+Out+this+product+from+Sash+Vogue&body=Hey!+I+found+this+for+you+Check+this+out:+http://{{hostname}}:{{port}}{{ url_for(request.endpoint,category=category,type=type,prodid=result[0])}}&ui=2&tf=1&pli=1"><i style="width:24px;height:24px;color:white;" class="fa-solid fa-envelope"></i></a></button>
+
+    <button class="shareButton tw" type="button" data-toggle="tooltip" data-placement="top" title="WhatsApp" >
+      <a href="whatsapp://send?text=Check out this outfit! Looks like something celebrities would wear:  http://192.168.216.44:5000/productdetails/Women/Dresses/Wdresses0003BluE"       data-action="share/whatsapp/share" ><i style="width:24px;height:24px;color:white;"  class="fa-brands fa-whatsapp "></i></a>
+      </button>
+      <button class="shareButton ig" type="button" data-toggle="tooltip" data-placement="top" title="Copy link!" onclick="copyToClipboard('http://{{hostname}}:{{port}}{{ url_for(request.endpoint,category=category,type=type,prodid=result[0])}}')">
+          <i style="width:24px;height:24px;color:white;" class="fa-solid fa-copy "></i></button>
+
+      </div>
+
+
+      </div>
+    <a onclick="seemore('true')"  id="seemoreid" style="cursor: pointer; visibility:visible;">Show more <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+    <div id="hiddendetaildiv">
+
+      <h3>Product Details</h3>
+    <ul>
+        {% if (category=='Footwears' and type=='Men') or (category=='Footwears' and type=='Women') : %}
+      <li>{{result[9]}}</li>
+        {% else:%}
+         <li>Package Contains: {{result[9]}}</li>
+        {% endif %}
+
+
+      <li>Material: {{result[3]}}</li>
+      <li>{{result[10]}}</li>
+      {% if (category=='Women' and type!='Saree') and (category=='Women' and type!='Ethnic Wear') :%}
+          <li>{{result[12]}} Darts</li>
+      {% endif %}
+      <li>Product Code: {{result[0]}} </li>
+      <li>MRP: Rs.{{result[2]}}  inclusive of all taxes(MRP changes as per size selection)  </li>
+      <li>Net Quantity: {{result[11]}}</li>
+      <li>Marketed By: {{result[14]}}</li>
+    <li>Manufactured By: {{result[13]}}</li>
+    <li>Country Of Origin: {{result[15]}}</li>
+      <li>Customer Care Address:  124, Greenways Rd, Bishop Garden, Raja Annamalai Puram, Trichy, Tamil Nadu-620001, Phone: 0431 2493 7803
+Mail: enquiries@sashvogue.co.in </li>
+    </ul>
+      <a onclick="seeless('true')"   style="cursor: pointer;margin-top:1%">Show less <i class="fa-solid fa-angle-up"></i></a>
+    </div>
+  </form>
+  </div>
+
+</div>
+   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Size Chart</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+ {% if category== 'Women' and type != 'Saree' : %}
+      <div class="modal-body">
+        <div class="togdiv">
+          <input type="checkbox" id="switchwomen" class="checkbox"  onclick="sizechartfunc('Women')"/>
+        <label for="switchwomen" class="toggle"><pre id="inwomen" > in  </pre ><pre id="cmwomen">cm</pre></label>
+        </div>
+        <img id="sizechartwomen" src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/sizechartinches.jpg')}}" class="d-block w-100" alt="...">
+
+      </div>
+
+         {% elif category=='Men' : %}
+      <div class="modal-body">
+        <div class="togdiv">
+          <input type="checkbox" id="switchmen" class="checkbox"  onclick="sizechartfunc('Men')"/>
+        <label for="switchmen" class="toggle"><pre > in  cm</pre></label>
+        </div>
+        <img id="sizechartmen" src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/sizechartmeninches.jpg')}}" class="d-block w-100" alt="...">
+
+      </div>
+
+         {% elif category=='Kids' : %}
+      <div class="modal-body">
+        <div class="togdiv">
+          <input type="checkbox" id="switchkids" class="checkbox"  onclick="sizechartfunc('Kids')"/>
+        <label for="switchkids" class="toggle"><pre > in  cm</pre></label>
+        </div>
+        <img id="sizechartkids" src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/sizechartkidsinches.jpg')}}" class="d-block w-100" alt="...">
+          <img id="sizechartkidsb" src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/sizechartkidsbinches.jpg')}}" class="d-block w-100" alt="...">
+      </div>
+
+             {% elif category=='Footwears' and type=='Men': %}
+      <div class="modal-body">
+        <div class="togdiv">
+          <input type="checkbox" id="switchfmen" class="checkbox"  onclick="sizechartfunc('fMen')"/>
+        <label for="switchfmen" class="toggle"><pre > in  cm</pre></label>
+        </div>
+        <img id="sizechartfmen" src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/sizechartinchesfmen.jpg')}}" class="d-block w-100" alt="...">
+
+      </div>
+
+           {% elif category=='Footwears' and type=='Kids': %}
+      <div class="modal-body">
+        <div class="togdiv">
+          <input type="checkbox" id="switchfkids" class="checkbox"  onclick="sizechartfunc('fKids')"/>
+        <label for="switchfkids" class="toggle"><pre > in  cm</pre></label>
+        </div>
+        <img id="sizechartfkids" src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/sizechartfkidsinches.jpg')}}" class="d-block w-100" alt="...">
+
+      </div>
+
+             {% elif category=='Footwears' and type == 'Women': %}
+      <div class="modal-body">
+        <div class="togdiv">
+          <input type="checkbox" id="switchfwomen" class="checkbox"  onclick="sizechartfunc('fWomen')"/>
+        <label for="switchfwomen" class="toggle"><pre > in  cm</pre></label>
+        </div>
+        <img id="sizechartfwomen" src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/sizechartinchesfmen.jpg')}}" class="d-block w-100" alt="...">
+
+      </div>
+
+
+        {% endif%}
+
+
+      <div class="modal-footer">
+        <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% from 'footer.html' import footer %}
+ {{footer()}}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="{{url_for('static',filename='script.js')}}"/>
+<script src="https://kit.fontawesome.com/0a56e63d65.js" crossorigin="anonymous"></script>
+</body>
+</html>
