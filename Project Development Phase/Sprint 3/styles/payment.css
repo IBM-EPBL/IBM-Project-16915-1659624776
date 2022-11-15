@@ -1,0 +1,52 @@
+ ::-webkit-scrollbar {
+    display: none;
+}
+
+.couponcard{
+  visibility:hidden;
+  width: 400px;
+    margin: 3% 5%;
+    overflow-y: scroll;
+    padding: 1%;
+    border: 1px solid;
+    border-radius: 2%;
+    overflow-y: scroll;
+background: rgb(153 146 146 / 30%);
+    height: 525px;
+}
+.couponbtn{
+    margin-top: 5%;
+    background: #8c7987;
+    color: white;
+}
+.couponbtn:hover{
+background:#695b66;
+color:white;
+}
+.couponimg img{
+    margin: 2%;
+    width: 290px;
+    height: 170px;
+
+}
+
+.deliaddress{
+    width: 75%;
+        margin: 0% 5%;
+
+}
+.paymentmode{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 160px;
+    margin: 15px;
+    padding: 5px;
+    background: #cff9d9;
+}
+
+btn-primary {
+    color: #fff;
+    background-color: #8c7987;
+    border-color:#8c7987;
+}
