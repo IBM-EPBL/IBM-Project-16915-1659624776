@@ -17,9 +17,15 @@
   {{usedalot(uname)}}
   <div class="path" style="margin: 7% 0% 0% 5%;">
     <a href="{{url_for('home_page')}}">Home <i class="fa-solid fa-angle-right"></i></a>
-    <a>{{category}} <i class="fa-solid fa-angle-right"></i></a>
-    <a href="{{url_for('products_page',category=category,type=type)}}">{{type}} <i class="fa-solid fa-angle-right"></i></a>
+    <a href="{{url_for('products_page',category=category,type=type)}}">{{category}} - {{type}}</a>
   </div>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  {% for message in messages %}
+  <h4 style="color:black;text-align:center;font-weight:bolder;">{{ message }} !</h4>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
   <div class="productdetaildiv">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -136,17 +142,9 @@
         {% endif %}
         <p>Return Policy: 7 days return policy</p>
         <p>Expected Delivery date: 19 Nov </p>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-        <p style="color:black;">{{ message }}</p>
-        {% endfor %}
-        {% endif %}
-        {% endwith %}
         <div style="display:flex;">
-          <button style="font-family: 'Quicksand', sans-serif;" class="btn buynow">Buy Now</button>
+          <input type="submit" style="font-family: 'Quicksand', sans-serif;" class="btn buynow" value="Buy Now" />
           <input type="submit" style="font-family: 'Quicksand', sans-serif;" value="Add To Cart" class="btn buynow" />
-
           <div class="content">
             <button class="shareButton main">
               <svg class="share" style="width:24px;height:24px" viewBox="0 0 24 24">
@@ -161,11 +159,13 @@
               </svg>
             </button>
             <button class="shareButton fb" type="button" data-toggle="tooltip" data-placement="top" title="Gmail">
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Hey+Check+Out+this+product+from+Sash+Vogue&body=Hey!+I+found+this+for+you+Check+this+out:+http://{{hostname}}:{{port}}{{ url_for(request.endpoint,category=category,type=type,prodid=result[0])}}&ui=2&tf=1&pli=1"><i
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Hey!+Check+out+this+product+from+Sash+Vogue&body=Hey!+I+found+this+for+you!+Check+this+out:+http://{{hostname}}:{{port}}{{ url_for(request.endpoint,category=category,type=type,prodid=result[0])}}&ui=2&tf=1&pli=1"><i
                   style="width:24px;height:24px;color:white;" class="fa-solid fa-envelope"></i></a></button>
+
             <button class="shareButton tw" type="button" data-toggle="tooltip" data-placement="top" title="WhatsApp">
-              <a href="whatsapp://send?text=Check out this outfit! Looks like something celebrities would wear:  http://192.168.216.44:5000/productdetails/Women/Dresses/Wdresses0003BluE" data-action="share/whatsapp/share"><i
-                  style="width:24px;height:24px;color:white;" class="fa-brands fa-whatsapp "></i></a>
+              <a href="whatsapp://send?text=Check out this outfit! Looks like something celebrities would wear:  http://{{hostname}}:{{port}}{{ url_for(request.endpoint,category=category,type=type,prodid=result[0])}}"
+                data-action="share/whatsapp/share"><i style="width:24px;height:24px;color:white;" class="fa-brands fa-whatsapp "></i></a>
             </button>
             <button class="shareButton ig" type="button" data-toggle="tooltip" data-placement="top" title="Copy link!"
               onclick="copyToClipboard('http://{{hostname}}:{{port}}{{ url_for(request.endpoint,category=category,type=type,prodid=result[0])}}')">
@@ -192,7 +192,7 @@
             <li>Marketed By: {{result[14]}}</li>
             <li>Manufactured By: {{result[13]}}</li>
             <li>Country Of Origin: {{result[15]}}</li>
-            <li>Customer Care Address: 124, Greenways Rd, Bishop Garden, Raja Annamalai Puram, Trichy, Tamil Nadu-620001, Phone: 0431 2493 7803
+            <li>Customer Care Address: 124, Greenways Rd, Bishop Garden, Raja Annamalai Puram, Trichy, Tamil Nadu-620001, Phone: 0431 2493 7803
               Mail: enquiries@sashvogue.co.in </li>
           </ul>
           <a onclick="seeless('true')" style="cursor: pointer;margin-top:1%">Show less <i class="fa-solid fa-angle-up"></i></a>
