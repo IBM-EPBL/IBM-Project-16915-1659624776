@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -16,7 +16,8 @@
   <title>Fashion</title>
 </head>
 <!--<body style="background:url({{url_for('static',filename='bgs/PAYMENTBG.jpg')}});background-repeat: no-repeat;  background-attachment: fixed;  background-position: center;  background-size: cover; ">-->
-<body style="background:url({{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/hmbg.png')}});background-repeat: no-repeat;  background-attachment: fixed;  background-position: center;  background-size: cover; ">
+<body
+  style="background:url({{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/hmbg.png')}});background-repeat: no-repeat;  background-attachment: fixed;  background-position: center;  background-size: cover; ">
   {% from 'nav.html' import usedalot %}
   {{ usedalot(uname) }}
   <div class="path" style="margin: 7% 0% 0% 5%;">
@@ -62,7 +63,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" id="done" style="background:#8c7987; border:#8c7987">Go to Home Page </button>
+              <a href="{{url_for('home_page')}}"><button type="button" class="btn btn-primary" id="done" style="background:#8c7987; border:#8c7987">Go to Home Page </button></a>
             </div>
           </div>
         </div>
@@ -109,6 +110,7 @@
     document.getElementById("cashon").addEventListener("click", function(event) {
       event.preventDefault()
     });
+
     document.getElementById("okdeliaddr").addEventListener("click", function(event) {
       event.preventDefault()
     });
