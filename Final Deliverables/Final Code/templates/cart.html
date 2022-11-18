@@ -23,6 +23,7 @@
     <a href="">Cart</a>
   </div>
   <div class="main">
+    {% if( lencartarr != 0): %}
     <div class="productscartdiv">
       {% for cartitem in cartarr: %}
       <div class="maincart">
@@ -49,7 +50,9 @@
       </div>
       {% endfor %}
     </div>
+    {% endif %}
     <!--    order  card   -->
+    {% if (lencartarr != 0): %}
     <div class="ordercoupondiv">
       <div class="ordercard">
         <div>
@@ -61,9 +64,11 @@
           <a href="{{url_for('payment_pg')}}" class="orderbtn">Proceed to buy</a>
         </div>
       </div>
-      <!-- cart -->
-      <!--  coupon card  -->
     </div>
+    {% endif %}
+    {% if(lencartarr == 0): %}
+    <h3 style="text-align:center;">Your cart is empty!</h3>
+    {% endif %}
   </div>
   <script>
     window.watsonAssistantChatOptions = {
