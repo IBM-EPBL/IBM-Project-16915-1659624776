@@ -7,7 +7,7 @@ import random
 from followback import *
 app= Flask(__name__)
 app.config['SECRET_KEY'] = 'df0331cefc6c2b9a5d0208a726a5d1c0fd37324feba25506'
-server = smtplib.SMTP('smtp.gmail.com',587)
+server = smtplib.SMTP('smtp.gmail.com',587)  #since we cannot use sendgrid we used smtplib module
 server.starttls()
 server.login("fashionatsashvogue@gmail.com","nhmhbqmdeuxrhvwv")
 #cart page
@@ -156,7 +156,7 @@ def payment_pg():
     res = ibm_db.fetch_tuple(stmt)
     userdob=datetime.datetime.strptime(str(res[0]), "%Y-%m-%d")
     userdobmon=userdob.month
-    userdobday=userdob.day
+    userdobday=userdob.day   #birthday coupon generation
 
     if(userdobmon == actualmon and userdobday == actualday):
         birthdaycoupon=True
