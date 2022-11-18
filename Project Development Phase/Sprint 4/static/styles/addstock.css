@@ -1,0 +1,36 @@
+.row
+{
+margin-top:20px;
+margin-left:300px;
+margin-right:300px;
+display:flex;
+color:gray;
+}
+.row:hover
+{
+background-color:black;
+}
+.row1
+{
+margin-top:20px;
+margin-left:300px;
+margin-right:300px;
+display:flex;
+color:gray;
+}
+.addstockbtn
+{
+background-color: black;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin-left:700px;
+margin-right:300px;
+border-radius: 8px;
+margin-top:50px;
+font-weight:bolder;
+}
