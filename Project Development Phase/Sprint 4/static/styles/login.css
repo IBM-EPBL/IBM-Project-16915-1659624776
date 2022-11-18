@@ -1,0 +1,89 @@
+.container{
+height: 100%;
+margin-left: 7%;
+padding-top: 35px;
+}
+body{
+max-width: 100%;
+overflow-x: hidden;
+margin:0;
+padding:0;
+font-family: 'Quicksand', sans-serif;
+}
+.card{
+height: 550px;
+margin-top: 30px;
+margin-bottom: auto;
+width: 50%;
+box-shadow: 0 1px 20px 0 antiquewhite;
+/* background-color: rgba(0,0,0,0.5) !important;*/
+background-color:rgba(51,14,14,0.5);
+}
+.card-body{
+padding: 1.5rem;
+}
+.btn{
+color: white;
+background-color: #c74545;
+/* justify-content: center; */
+margin-left: 13%;
+height: 50px;
+border-radius: 25px;
+width: 75%;
+margin-bottom: 8%;
+}
+.btn:hover{
+color: black;
+background-color: white;
+}
+.input-group{
+margin-bottom: 12%;
+}
+.input-group-prepend span{
+width: 50px;
+background-color: black;
+color: black;
+border:0 !important;
+}
+input:focus{
+outline: 0 0 0 0 !important;
+box-shadow: 0 0 0 0 !important;
+}
+.form-control:focus {
+background-color:white }
+.card-body a{
+margin: 10px;
+text-align: center;
+color: aliceblue;
+text-decoration: none;
+}
+svg:not(:root).svg-inline--fa{
+color: white;
+}
+.stock
+{
+margin:3%;
+width:80%;
+margin-left:100px;
+margin-top:70px;
+font-weight:600;
+}
+.adlogincard
+{
+height: 100%;
+margin-left: 80%;
+margin-right:120%;
+width:70%;
+margin:1%;
+padding-top: 25px;
+}
+.logincard
+{
+margin-left:15%;
+height: 550px;
+margin-top: 30px;
+margin-bottom: auto;
+width: 50%;
+box-shadow: 0 1px 20px 0 antiquewhite;
+/* background-color: rgba(0,0,0,0.5) !important;*/
+background-color:rgba(51,14,14,0.5);
