@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sash Vogue</title>
+    <link rel="icon" type="image/jpeg" href="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/logo.jpeg')}}" sizes="200x200">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static',filename='styles/products.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url_for('static',filename='styles/payment.css')}}" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script defer src="https://use.fontawesome.com/releases/v6.2.0/js/all.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&family=Quicksand:wght@300&Alex+Brush&display=swap" rel="stylesheet">
+    <title>Fashion</title>
+</head>
+<!--<body style="background:url({{url_for('static',filename='bgs/PAYMENTBG.jpg')}});background-repeat: no-repeat;  background-attachment: fixed;  background-position: center;  background-size: cover; ">-->
+<body style="background:url({{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/hmbg.png')}});background-repeat: no-repeat;  background-attachment: fixed;  background-position: center;  background-size: cover; ">
+
+{% from 'nav.html' import usedalot %}
+    {{ usedalot(uname) }}
+
+    <div class="path" style="margin: 7% 0% 0% 5%;">
+      <a  href="{{url_for('home_page')}}">Home <i class="fa-solid fa-angle-right"></i></a>
+        <a  href="{{url_for('cart_page')}}">Cart<i class="fa-solid fa-angle-right"></i></a>
+        <a  href="">Payment</a>
+    </div>
+    {% if(birthdaycoupon ==True): %}
+             <h1 style="font-family: 'Alex Brush', cursive;font-weight: 800;color:#1b8981;
+    text-align: center;">Hey it's your birthday!!! Check out your special  birthday coupon</h1>
+    {%endif %}
+<form method="post">
+<div class ="main" style="display:flex;">
+
+    <div class="deliaddress">
+
+        <h2 style="font-weight: bold;">Delivery Address</h2>
+        <textarea id="deliaddr" rows="7" cols="100" name="address" value="{{request.form['address']}}">{{res[1]}}</textarea><br>
+
+        <h2 style="font-weight: bold;">Bill Details</h2>
+        <!--  Final amount tobe paid is displayed      -->
+        <h5>Bill Amount: Rs. {{netamt|round|int}}</h5>
+
+        <input type=checkbox id="coupon" name="coupon" value="yes" onclick="checkcouponprice({{netamt}},'{{birthdaycoupon}}')"> Apply Coupon<br><br>
+
+
+
+
+        <p>Coupon will be offered if your amount exceeds ₹1000</p>
+        <h2 style="font-weight: bold;">Payment Mode</h2>
+        <div style="display:flex; padding: 30px;">
+            <button class="paymentmode" id="razpay">
+                <a href="{{url_for('payment_redirect')}}"><img style="height:55px; width:150px" src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/razorpay.png')}}"/></a>
+            </button>
+            <button class="paymentmode" id="cod" data-toggle="modal" data-target="#exampleModal">
+                <img style="height:50px; width:50px" src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/cod.png')}}" id="cashon"/> Cash on Delivery
+            </button>
+        </div>
+
+    </div>
+
+     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Thank You for Shopping! Order Placed!!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Your order will be delivered on 19th November, 2022.<br>Payment Mode: Cash on Delivery<br>Amount: Rs. 8750
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="done" style="background:#8c7987; border:#8c7987">Go to Home Page </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="couponcard" style="padding:1%" id="coupondiv">
+            <h3 style="font-family: 'Lora', serif;">Coupons available for you</h3>
+              <div class="couponimg" style="display:flex;flex-direction:column;align-items: center;">
+                  {% if birthdaycoupon==True: %}
+                         <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/coupon4.jpg')}}"  />
+                  {% endif %}
+            <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/coupon1.jpg')}}"  />
+            <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/coupon2.jpg')}}" />
+            <img src="{{url_for('redirect_to',link='https://s3.jp-tok.cloud-object-storage.appdomain.cloud/smartfashion2001/coupon3.jpg')}}"  />
+<!--            <input type="text" placeholder="Enter the Coupon code" name="couponcode" value="{{ request.form['couponcode'] }}">-->
+
+      <input style="border-radius: 25px;" class="form-control mr-sm-2" placeholder="Coupon Code" name="couponcode" value="{{ request.form['couponcode'] }}" >
+       <input type="submit" class="btn couponbtn"  name="submit" value="Apply">
+
+
+                  </div>
+
+   </div>
+
+    </div>
+
+    </form>
+        <!-- Modal -->
+
+
+
+
+
+
+
+
+    <script>
+
+  window.watsonAssistantChatOptions = {
+    integrationID: "cba0c163-9f9a-42ce-b6e9-979ac6318cc0", // The ID of this integration.
+    region: "au-syd", // The region your integration is hosted in.
+    serviceInstanceID: "245858a6-01a2-41fc-8707-d603be17b8f0", // The ID of your service instance.
+    onLoad: function(instance) { instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+
+function checkcouponprice(price,bdaycoupon){
+
+if(price < 1000 && bdaycoupon=="False" )
+   window.alert("Coupon will be offered if your amount exceeds ₹1000");
+
+
+else{
+     document.getElementById('coupondiv').style.visibility="visible";
+     document.getElementById('coupon').style.visibility="hidden";
+     }
+}
+
+
+
+
+
+
+
+  document.getElementById("cashon").addEventListener("click", function(event){
+  event.preventDefault()
+});
+
+  document.getElementById("okdeliaddr").addEventListener("click", function(event){
+  event.preventDefault()
+});
+  document.getElementById("addredit").addEventListener("click", function(event){
+  event.preventDefault()
+});
+        const delibtn1 = document.getElementById('addredit');
+        delibtn1.addEventListener('click', () => {
+            // show change button, enable textarea
+            document.getElementById('deliaddr').disabled = false;
+            const delibtn2 = document.getElementById('okdeliaddr');
+            delibtn2.style.visibility = 'visible';
+        });
+        const delibtn2 = document.getElementById('okdeliaddr');
+        delibtn2.addEventListener('click', () => {
+            // hide change button, disable textare
+            document.getElementById('deliaddr').disabled = true;
+            delibtn2.style.visibility = 'hidden';
+        });
+
+
+
+
+<!--        const donebtn = document.getElementById('done');-->
+<!--        donebtn.addEventListener('click', () => {-->
+<!--            // Go to Home Page-->
+<!--            window.location.replace("http://192.168.1.100:5000/");-->
+<!--        });-->
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="{{url_for('static',filename='script.js')}}"/>
+    <script src="https://kit.fontawesome.com/0a56e63d65.js" crossorigin="anonymous"></script>
+</body>
+</html>
