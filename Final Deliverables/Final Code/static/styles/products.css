@@ -1,0 +1,355 @@
+body{
+background-color: white;
+max-width: 100%;
+overflow-x: hidden;
+margin:0;
+padding:0;
+font-family: 'Quicksand', sans-serif;
+}
+.dropdown:hover .dropdown-menu {display: block;}
+.modal.show .modal-dialog{
+width:40%;
+}
+nav{
+background:#b0d4b9;
+}
+.navbar-expand-lg .navbar-nav .nav-link:hover{
+color: rgb(255, 227, 227);
+scale:1.2;
+}
+.navbar-expand-lg .navbar-nav .nav-link
+{
+transition-property: scale;
+transition-timing-function: ease-in-out;
+transition-duration: 0.3s;
+font-size:medium;
+color:black;
+letter-spacing:2px;
+}
+nav li{
+margin:2%;
+}
+.mr-auto, .mx-auto {
+margin-right: 0;
+}
+.navbar-nav{
+margin-left:5%;
+}
+.navbar-expand-lg .navbar-nav .dropdown-menu{
+background-color: rgb(255,255,255,0.9);
+top: 90%;
+border: 1px solid rgba(0,0,0,0.1);
+border-radius:0
+}
+.dropdown-item{
+color:black;
+font-weight:bolder;
+}
+.dropdown-item:focus, .dropdown-item:hover {
+background: none;
+color:#8c7987;
+}
+*{
+box-sizing: border-box;
+}
+#brand:hover{
+color:black;
+}
+.navbar-brand{
+font-family: 'Jost', sans-serif;
+font-size: 40px;
+letter-spacing:3px;
+color: black;
+}
+.card{
+width:250px;
+}
+.card-body{
+text-align:center;
+background: rgb(176, 212, 185,0.3);
+}
+.addtocartbtn{
+background:#8c7987;
+color:white;
+}
+.addtocartbtn:hover{
+color:black;
+background:#b0d4b9;
+}
+.searchbtn:hover{
+background:white;
+color:black
+}
+.container{
+margin-left: 3%;
+margin-right:0px;
+}
+.container .card{
+width: 280px;
+margin: 5%;
+}
+.card-img-top{
+height:350px;
+transition-timing-function: ease-in-out;
+transition-property:transform;
+transition-duration:0.5s;
+}
+.card-img-top:hover{
+transform:scale(1.08);
+}
+.carousel{
+margin: 1% 5%;
+height: 35%;
+width:35%;
+padding: 1%;
+background: white;
+box-shadow:6px 7px 10px 5px rgba(0 0 0 / 50%);
+}
+.productdetaildiv{
+display:flex;
+}
+.detaildesc{
+margin: 3% 0%;
+width: 65%;
+}
+#hiddendetaildiv{
+visibility:hidden;
+padding:1%;
+}
+.detaildesc h1{
+font-size: 2.8rem;
+color:rgb(130 103 123);
+font-family: 'Lora', serif;
+}
+#hiddendetaildiv h3{
+font-family: 'Lora', serif;
+}
+.detaildesc p{
+font-size:1.2rem;
+font-family: 'Source Serif Pro', serif;
+margin:0.8%;
+}
+.detaildesc a{
+color:rgb(130 103 123);
+cursor: pointer;
+margin-left: 1%;
+font-family: 'Jost', sans-serif;
+}
+.detaildesc a:not([href]):not([class]):hover{
+color:rgba(0,0,0,0.7);
+}
+#hiddendetaildiv li{
+font-family: 'Source Serif Pro', serif;
+font-size:1.1rem;
+}
+.buynow{
+font-family: 'Quicksand', sans-serif;
+width: 20%;
+margin: 1%;
+font-size: 1.2rem;
+font-weight: bolder;
+color: white;
+background:#8c7987;
+}
+.buynow:hover{
+background:#b0d4b9;
+color:black;
+}
+#sizechartid{
+font-weight: bold;
+cursor: pointer;
+margin-left: 1%;
+font-family: 'Jost', sans-serif;
+}
+.path a{
+font-size:medium;
+font-weight:700;
+text-decoration:none;
+color:black;
+}
+.path a:hover{
+color:#8c7987;
+}
+pre{
+display: inline;
+font-family: 'Jost', sans-serif;
+font-weight: 600;
+font-size: large;
+}
+.toggle {
+cursor:pointer;
+position: relative;
+display: inline-block;
+width: 60px;
+left: 80%;
+height: 30px;
+background-color: white;
+border-radius: 30px;
+border: 2px solid black;
+}
+/* After slide changes */
+.toggle:after {
+content: '';
+position: absolute;
+width: 25px;
+height: 25px;
+/* right: 25px; */
+border-radius: 50%;
+background-color: black;
+left: 1px;
+left: 5px;
+transition: all 0.5s;
+left: 1px;
+}
+.checkbox:checked + .toggle::after {
+left : 30px;
+}
+/* Checkbox checked toggle label bg color */
+.checkbox:checked + .toggle {
+background-color: white;
+}
+/* Checkbox vanished */
+.checkbox {
+display : none;
+}
+.fb-ic, .tw-ic, .li-ic, .ins-ic, .pin-ic{
+color: #3f363c;
+text-decoration: none;
+background-color: transparent;
+}
+.fb-ic:hover{
+color: #b0d4b9;
+text-decoration: none;
+}
+.tw-ic:hover{
+color: #b0d4b9;
+text-decoration: none;
+}
+.li-ic:hover{
+color: #b0d4b9;
+text-decoration: none;
+}
+.ins-ic:hover{
+color: #b0d4b9;
+text-decoration: none;
+}
+.pin-ic:hover{
+color: #b0d4b9;
+text-decoration: none;
+}
+.radio-toolbar {
+margin: 10px;
+}
+.radio-toolbar div{
+margin:1%;
+}
+.radio-toolbar input[type="radio"] {
+opacity: 0;
+position: fixed;
+width: 0;
+}
+.radio-toolbar label {
+display: inline-block;
+cursor:pointer;
+padding: 10px 20px;
+font-family: sans-serif, Arial;
+font-size: 16px;
+border: 2px solid #b0d4b9;
+border-radius: 4px;
+}
+.radio-toolbar label:hover{
+background: rgb(176 212 185 / 20%);
+}
+.radio-toolbar input[type="radio"]:focus + label {
+border: 3px solid #b0d4b9;
+}
+.challenge {
+width: 541px;
+height: 22px;
+position: absolute;
+transform: rotate(-90deg);
+top: 569.5px;
+left: 755px;
+transform-origin: 0 0;
+}
+.challenge .number {
+float: right;
+}
+.challenge .daily {
+float: left;
+}
+.content {
+background: white;
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+}
+.content .shareButton.main .share, .content .shareButton.main .close, .content .shareButton.main .check {
+position: absolute;
+top: 1rem;
+left: 1rem;
+transition: all 150ms;
+}
+.content .shareButton.main .share, .content .shareButton.main.open .close, .content .shareButton.main.sent .check {
+transform: rotate(0) scale(1);
+opacity: 1;
+}
+.content .shareButton.main .close, .content .shareButton.main.open .share, .content .shareButton.main .check, .content .shareButton.main.sent .share {
+opacity: 0;
+transform: rotate(90deg) scale(0);
+}
+.shareButton, .shareButton.open {
+border: none;
+border-radius: 50%;
+background: #8c7987;
+padding: 1rem;
+overflow: hidden;
+outline: none;
+margin: 0.5rem;
+width: 24px;
+height: 24px;
+box-sizing: content-box;
+transition: all 200ms;
+position: relative;
+opacity: 1;
+transform: scale(1);
+box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+.shareButton:hover, .shareButton.open:hover {
+transform: scale(1.1) translateY(-3px);
+box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+.shareButton svg, .shareButton.open svg {
+display: block;
+fill: white;
+width: 24px;
+height: 24px;
+opacity: 1;
+transition: all 150ms;
+transform: scale(1);
+}
+.fb, .shareButton.open.ig {
+transition-delay: 100ms;
+}
+.tw, .shareButton.open.tw {
+transition-delay: 50ms;
+}
+.ig, .shareButton.open.fb {
+transition-delay: 0ms;
+}
+.fb, .tw, .ig {
+width: 0;
+height: 0;
+overflow: hidden;
+padding: 0;
+margin: 0;
+opacity: 0;
+transform: scale(0);
+}
+.fb svg, .tw svg, .ig svg {
+width: 0;
+height: 0;
+opacity: 0;
+transform: scale(0);
+}
