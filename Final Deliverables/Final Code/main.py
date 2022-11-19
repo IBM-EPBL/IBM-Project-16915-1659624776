@@ -10,7 +10,8 @@ app.config['SECRET_KEY'] = 'df0331cefc6c2b9a5d0208a726a5d1c0fd37324feba25506'
 server = smtplib.SMTP('smtp.gmail.com',587)  #since we cannot use sendgrid we used smtplib module
 server.starttls()
 server.login("fashionatsashvogue@gmail.com","nhmhbqmdeuxrhvwv")
-#cart page
+
+#cart
 @app.route("/cart",methods=('GET','POST'))
 def cart_page():
     userid=session.get('logged_in_userid', None)
@@ -32,6 +33,8 @@ def cart_page():
             querycart = "DELETE from cart where prodid='" + prodid + "'"
             ibm_db.exec_immediate(conn, querycart)
     return  render_template("cart.html",cartarr=arr,totcost=amtarr[0],totdis=amtarr[1],netamt=amtarr[2],uname=uname,lencartarr=len(arr))
+
+#home page
 @app.route("/")
 def home_page():
     logged_in_username = session.get('logged_in_username', None)
@@ -44,10 +47,12 @@ def logout_pg():
     session.clear()
     return redirect(url_for('loginpage'))
 
+#external page
 @app.route('/redirect_to')
 def redirect_to():
     link = request.args.get('link', '/')
     return redirect(link), 301
+
 #registration page
 @app.route("/register",methods=('GET','POST'))
 def regpage():
@@ -74,6 +79,7 @@ Hey """+username+""",\nYou have been successfully registered with Sash Vogue Com
 
     return render_template("registration.html")
 
+#login page
 @app.route("/login",methods=('GET','POST'))
 def loginpage():
     type='user'
@@ -98,7 +104,7 @@ def loginpage():
     return render_template("login.html",type=type)
 
 
-
+#redirect to payemnet process page
 @app.route("/paymentredirect")
 def payment_redirect():
     userid = session.get('logged_in_userid', None)
@@ -122,6 +128,8 @@ Thank you for your order!. Your order has been received. Continue Shopping with 
         server.sendmail("fashionatsashvogue@gmail.com", umail, message)
 
     return redirect(url_for('redirect_to',link='https://rzp.io/l/Ninl0NjQ'))
+
+#payment page
 @app.route("/payment",methods=('GET','POST'))
 def payment_pg():
     userid = session.get('logged_in_userid', None)
@@ -165,6 +173,7 @@ def payment_pg():
 
     return render_template("payment.html",netamt=amtarr[2],birthdaycoupon=birthdaycoupon,userid=userid,res=res,uname=uname)
 
+#admin stocks page
 @app.route("/addstock")
 def add_Stockpg():
     return render_template("addstock.html")
@@ -183,7 +192,7 @@ def adminloginpage():
     return render_template("login.html",type=type)
 
 
-
+#admin page
 @app.route('/admin')
 def adminhomepage():
     arr=[]
@@ -196,6 +205,7 @@ def adminhomepage():
 
     return render_template("adminhome.html",prodarr=arr)
 
+#product details
 @app.route("/productdetails/<category>/<type>/<prodid>",methods=('GET','POST'))
 def product_detailspg(category,type,prodid):
     o = urlparse(request.base_url)
@@ -223,6 +233,7 @@ def product_detailspg(category,type,prodid):
 
     return render_template("productdetails.html",category=category,type=type,prodid=prodid,result=res,api=api,res18empty=res18empty,res19empty=res19empty,pricedisplay=pricedisplay,hostname=o.hostname,port=o.port,uname=uname)
 
+#Accessories - Sunglass
 @app.route("/sunglasses_/<category>/<type>/<prodid>",methods=('GET','POST'))
 def sunglasses_detailspg(category,type,prodid):
     o = urlparse(request.base_url)
@@ -242,6 +253,7 @@ def sunglasses_detailspg(category,type,prodid):
     pricedisplay = round(res[2] - (res[2] * res[17] / 100))
     return render_template("sunglasses_details.html",category=category,type=type,prodid=prodid,result=res,api=api,pricedisplay=pricedisplay,hostname=o.hostname,port=o.port,uname=uname)
 
+#wishlist
 @app.route('/wishlist')
 def wishlist_pg():
     userid = session.get('logged_in_userid', None)
@@ -249,6 +261,7 @@ def wishlist_pg():
     arr=fetchwishlist(userid)
     return render_template("wishlist.html",wishlistarr=arr,uname=uname)
 
+#products page
 @app.route("/products/<category>/<type>",methods=('GET','POST'))
 def products_page(category,type):
     arr=[]
