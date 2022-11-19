@@ -7,10 +7,25 @@ import random
 from followback import *
 app= Flask(__name__)
 app.config['SECRET_KEY'] = 'df0331cefc6c2b9a5d0208a726a5d1c0fd37324feba25506'
-server = smtplib.SMTP('smtp.gmail.com',587)  #since we cannot use sendgrid we used smtplib module
-server.starttls()
-server.login("fashionatsashvogue@gmail.com","nhmhbqmdeuxrhvwv")
+app= Flask(__name__)
+app.config['SECRET_KEY'] = 'df0331cefc6c2b9a5d0208a726a5d1c0fd37324feba25506'
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USERNAME'] = 'fashionatsashvogue@gmail.com'
+app.config['MAIL_PASSWORD'] = 'nhmhbqmdeuxrhvwv'
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+mail = Mail(app)
 
+def mail_service(mailid,sub,body):
+    try:
+        msg = Message(sub,sender="fashionatsashvogue@gmail.com",recipients=[mailid])
+        msg.body = body
+        mail.send(msg)
+        print("Sent")
+    except Exception as e:
+        print("error")
+        
 #cart
 @app.route("/cart",methods=('GET','POST'))
 def cart_page():
@@ -74,7 +89,7 @@ def regpage():
 Hey """+username+""",\nYou have been successfully registered with Sash Vogue Community."""
 
         if(len(form_checkvals) !=0  and form_checkvals[0]=='yes'):
-            server.sendmail("fashionatsashvogue@gmail.com",email,message)
+            mail_service(email,subject,body)
         return redirect(url_for('loginpage'))
 
     return render_template("registration.html")
@@ -125,7 +140,7 @@ Thank you for your order!. Your order has been received. Continue Shopping with 
         ibm_db.bind_param(stmt, 4, bill)
         ibm_db.bind_param(stmt, 5, dt)
         ibm_db.execute(stmt)
-        server.sendmail("fashionatsashvogue@gmail.com", umail, message)
+        mail_service(email,subject,body)
 
     return redirect(url_for('redirect_to',link='https://rzp.io/l/Ninl0NjQ'))
 
