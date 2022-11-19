@@ -84,9 +84,8 @@ def regpage():
         query="insert into user values('"+userid+"','"+username+"','"+contact+"','"+password+"','"+email+"','"+dob+"','"+address+"')"
         stmt=ibm_db.exec_immediate(conn,query)
         rowcount=ibm_db.num_rows(stmt)
-        message = """Subject: Verify email for Sash Vogue
-
-Hey """+username+""",\nYou have been successfully registered with Sash Vogue Community."""
+        subject="Verify email for Sash Vogue"
+        body="You have been successfully registered with Sash Vogue Community."
 
         if(len(form_checkvals) !=0  and form_checkvals[0]=='yes'):
             mail_service(email,subject,body)
